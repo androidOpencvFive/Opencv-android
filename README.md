@@ -6,6 +6,7 @@
 1. 根据人脸信息匹配人脸特征值；
 1. 框选画面中出现的人脸。
 
+### 编译环境（待详细描述）
 
 ### 初始化（待详细描述）
 
@@ -26,15 +27,15 @@
 - 多用工具和快捷键，增删改查快捷高效
 
 ### 参考资料
-[人脸识别功能教程——实现支付宝人脸识别功能](https://www.jianshu.com/p/fe8dbb9f72ef?utm_source=desktop&utm_medium=timeline "人脸识别功能教程——实现支付宝人脸识别功能")
+- [人脸识别功能教程——实现支付宝人脸识别功能](https://www.jianshu.com/p/fe8dbb9f72ef?utm_source=desktop&utm_medium=timeline "人脸识别功能教程——实现支付宝人脸识别功能")
+- [android 使用 surfaceView 获取 camera 预览界面图像数据](https://blog.csdn.net/DucklikeJAVA/article/details/81288624 "android 使用 surfaceView 获取 camera 预览界面图像数据")
 
 
 
 ### 资料整合
-1. Opencv介绍
-1. 人脸识别功能的实现思路
-1. 摄像机
-1. 提取特征值和匹配人脸信息的原理
+1. Opencv功能介绍
+1. 摄像头获取图片信息
+1. 识别人脸并进行框选（Camera预览surfaceview 并转为bitmap格式）
 
 
 ### 关于作者（工作分类待定）
@@ -42,8 +43,11 @@
 徐旸——摄像机
 #### 组员
 于之希——资料整理
+
 陈俊锦——搭建环境+整合代码
+
 任峻扬——识别功能
+
 金子钰——资料整理
 
 ### END
