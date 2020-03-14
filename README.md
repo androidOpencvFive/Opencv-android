@@ -19,6 +19,8 @@ OpenCV是一个基于BSD许可（开源）发行的跨平台计算机视觉库�
 
 --？：技术文档
 
+## 编译环境（待描述）
+
 
 ## 知识储备
 
@@ -34,49 +36,19 @@ SurfaceView提供了嵌入视图层级中的专用surface。你可以控制surfa
 
 一个抽象接口，给持有surface的对象使用。它可以控制surface的大小和格式，编辑surface中的像素，以及监听surface的变化，这个接口通常通过SurfaceView类获得。
 
-SurfaceHolder中有一个Callbcak接口，它有3个回调方法
-
-- `surfaceCreated(SurfaceHolder holder)`
-  第一次创建时回调
-- `surfaceChanged(SurfaceHolder holder, int format, int width,
-   int height)`
-  变化的时候回调(格式/大小)
-- `surfaceDestroyed(SurfaceHolder holder)`
-  销毁的时候回调
-
 ### Camera
 Camera负责采集数据和各种操作,主要内部类如下：
 
 **1. CameraInfo**
-CameraInfo类用来描述相机信息，通过Camera类中`getCameraInfo(int cameraId, CameraInfo cameraInfo)`方法获得，主要包括以下两个成员变量：
-- facing
-facing 代表相机的方向，它的值只能是CAMERA_FACING_BACK（后置摄像头） 或者CAMERA_FACING_FRONT（前置摄像头）。
+CameraInfo类用来描述相机信息，通过Camera类中`getCameraInfo(int cameraId, CameraInfo cameraInfo)`方法获得，主要包括以下两个成员变量：facing 代表相机的方向,orientation是相机采集图片的角度。
 
-- orientation
-orientation是相机采集图片的角度。这个值是相机所采集的图片需要顺时针旋转至自然方向的角度值,它必须是0，90,180或270中的一个。
-
-**2. Size**
-图片大小，里面包含两个变量：width和height（图片的宽和高）
-
-**3. Parameters**
+**2. Parameters**
 Parameters是相机服务设置，不同的相机可能是不相同的。比如相机所支持的图片大小，对焦模式等等。
 
-**4. PreviewCallback**
-PreviewCallback是一个抽象接口
-
- `void onPreviewFrame(byte[] data, Camera camera)`
+**3. PreviewCallback**
+PreviewCallback是一个抽象接口`void onPreviewFrame(byte[] data, Camera camera)`
 
 通过onPreviewFrame方法来获取到相机预览的数据，第一个参数data，就是相机预览到的原始数据。
-
-**5. Face**
-Face类用来描述通过Camera的人脸检测功能检测到的人脸信息
-
-**6. FaceDetectionListener**
-这是一个抽象接口，当开始人脸检测时开始回调
-
-`onFaceDetection(Face[] faces, Camera camera)`
-
-第一参数代表检测到的人脸，是一个Face数组(画面内可能存在多张人脸)
 
 ### Opencv
 **1. cvtColor**
@@ -85,25 +57,8 @@ cvtColor函数是OpenCV里用于图像颜色空间转换，可以实现RGB颜色
 **2. 降噪**
 尽量保留图像细节特征的条件下对目标图像的噪声进行抑制和平滑处理，是图像预处理中不可缺少的操作，其处理效果的好坏将直接影响到后续图像处理和分析的有效性和可靠性。
 
-在opencv中有四种常用处理方式：
-- blur 归一化块滤波器
-- GaussianBlur 高斯滤波器
-- medianBlur 中值滤波器
-- bilateralFilter 双边滤波器
-
-
 **3. 边缘检测**
-主要步骤：
-1. 图片灰度化，将彩色图片转为灰度图
-2. 高斯模糊去噪
-3. 使用Canny算法进行边缘识别
-4. 将边缘识别后的图像二值化
-5. 提取图像边框，选组合适边框
-6. 对图像轮廓点进行多边形拟合
-7. 在多边形中选择合适点作为扫描图形的边界点
-8. 对结果图像使用透视技术纠正角度
-- canny检测：
-`void Canny(InputArray image,OutputArray edges, double threshold1, double threshold2, int apertureSize=3,bool L2gradient=false )`
+主要步骤：图片灰度化，将彩色图片转为灰度图、高斯模糊去噪、使用Canny算法进行边缘识别、将边缘识别后的图像二值化、提取图像边框，选组合适边框、对图像轮廓点进行多边形拟合、在多边形中选择合适点作为扫描图形的边界点、对结果图像使用透视技术纠正角度
 
 ### Opencv-CascadeClassifier
 CascadeClassifier是opencv下objdetect模块中用来做目标检测的级联分类器的一个类；简而言之是滑动窗口机制+级联分类器的方式。
@@ -112,42 +67,8 @@ CascadeClassifier是opencv下objdetect模块中用来做目标检测的级联分
 
 ### DetectMultiScale
 opencv2中人脸检测使用的是 detectMultiScale函数。它可以检测出图片中所有的人脸，并将人脸用vector保存各个人脸的坐标、大小（用矩形表示）。
-```cpp
-void detectMultiScale(
-	const Mat& image,
-	CV_OUT vector<Rect>& objects,
-	double scaleFactor = 1.1,
-	int minNeighbors = 3, 
-	int flags = 0,
-	Size minSize = Size(),
-	Size maxSize = Size()
-);
-
-```
-
 ### Rectangle
-用于绘制矩形
-- 利用对角线两点来绘制矩形
-`void rectangle(Mat& img, Point pt1,Point pt2,const Scalar& color, int thickness=1, int lineType=8, int shift=0)`
-
-- 传入矩形参数来绘制矩形
-`void rectangle(Mat& img, Rect rec, const Scalar& color, int thickness=1, int lineType=8, int shift=0 )`
-
-
-
-
-
-## 编译环境（待详细描述）
-
-## 初始化（待详细描述）
-
-
-
-
-
-
-
-
+该函数用于绘制矩形，可以利用对角线两点来绘制矩形或者传入矩形参数来绘制矩形。
 
 ## 参考资料
 - [人脸识别功能教程——实现支付宝人脸识别功能](https://www.jianshu.com/p/fe8dbb9f72ef?utm_source=desktop&utm_medium=timeline "人脸识别功能教程——实现支付宝人脸识别功能")
@@ -155,8 +76,6 @@ void detectMultiScale(
 - [Android: Camera相机开发详解](https://www.jianshu.com/p/f8d0d1467584 "Android: Camera相机开发详解")
 - [android使用OpenCV之图像滤波处理](https://www.jianshu.com/p/e9562f8af1cb "android使用OpenCV之图像滤波处理")
 - [opencv4android 常用函数API](https://blog.csdn.net/hbl_for_android/article/details/51941106 "opencv4android 常用函数API")
-
-
 
 ## 资料整合工作（后删除）
 1. Opencv功能介绍
@@ -175,8 +94,6 @@ void detectMultiScale(
 徐旸——相机预览
 
 任峻扬——识别功能
-
-
 
 ## 项目记录
 
