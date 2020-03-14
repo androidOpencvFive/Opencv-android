@@ -14,20 +14,23 @@ OpenCV是一个基于BSD许可（开源）发行的跨平台计算机视觉库�
 
 ## 项目结构
 --code：示例代码
+
 --资料整理：存放整理后资料
--- ：技术文档
+
+--？：技术文档
+
 
 ## 知识储备
 
-#### Surface
+### Surface
 
 Surfaces是用来处理屏幕显示内容合成器所管理的原始缓存区的工具。它通常由图像缓冲区的消费者来创建（如：SurfaceTexture，MediaRecorder），然后被移交给生产者（如：MediaPlayer）或者是显示到其上（如：CameraDevice）。
 
-#### SurfaceView
+### SurfaceView
 
 SurfaceView提供了嵌入视图层级中的专用surface。你可以控制surface的格式或大小。SurfaceView负责把surface显示在屏幕的正确位置。
 
-#### SurfaceHolder
+### SurfaceHolder
 
 一个抽象接口，给持有surface的对象使用。它可以控制surface的大小和格式，编辑surface中的像素，以及监听surface的变化，这个接口通常通过SurfaceView类获得。
 
@@ -41,7 +44,7 @@ SurfaceHolder中有一个Callbcak接口，它有3个回调方法
 - `surfaceDestroyed(SurfaceHolder holder)`
   销毁的时候回调
 
-###Camera
+### Camera
 Camera负责采集数据和各种操作,主要内部类如下：
 
 **1. CameraInfo**
@@ -75,7 +78,7 @@ Face类用来描述通过Camera的人脸检测功能检测到的人脸信息
 
 第一参数代表检测到的人脸，是一个Face数组(画面内可能存在多张人脸)
 
-###opencv
+### Opencv
 **1. cvtColor**
 cvtColor函数是OpenCV里用于图像颜色空间转换，可以实现RGB颜色、HSV颜色、HSI颜色、lab颜色、YUV颜色等转换，也可以彩色和灰度图互转。
 
@@ -102,12 +105,12 @@ cvtColor函数是OpenCV里用于图像颜色空间转换，可以实现RGB颜色
 - canny检测：
 `void Canny(InputArray image,OutputArray edges, double threshold1, double threshold2, int apertureSize=3,bool L2gradient=false )`
 
-###Opencv-CascadeClassifier
+### Opencv-CascadeClassifier
 CascadeClassifier是opencv下objdetect模块中用来做目标检测的级联分类器的一个类；简而言之是滑动窗口机制+级联分类器的方式。
 - 加载人脸识别的级联分类器
 `CascadeClassifier cascadeClassifier;`
 
-###DetectMultiScale
+### DetectMultiScale
 opencv2中人脸检测使用的是 detectMultiScale函数。它可以检测出图片中所有的人脸，并将人脸用vector保存各个人脸的坐标、大小（用矩形表示）。
 ```cpp
 void detectMultiScale(
@@ -122,7 +125,7 @@ void detectMultiScale(
 
 ```
 
-###Rectangle
+### Rectangle
 用于绘制矩形
 - 利用对角线两点来绘制矩形
 `void rectangle(Mat& img, Point pt1,Point pt2,const Scalar& color, int thickness=1, int lineType=8, int shift=0)`
@@ -178,5 +181,7 @@ void detectMultiScale(
 ## 项目记录
 
 3.12  组内分工、readme文档编写
+
 3.13  更新opencv介绍文档，修改readme文档
+
 3.14  修改readme文档
