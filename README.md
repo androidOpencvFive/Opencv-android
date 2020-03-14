@@ -101,4 +101,4 @@ opencv2中人脸检测使用的是 detectMultiScale函数。它可以检测出�
 
 3.13  更新opencv介绍文档，修改readme文档
 
-3.14  修改readme文档
+3.14  修改readme文档，添加camera相关资料
