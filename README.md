@@ -71,7 +71,7 @@ opencv2中人脸检测使用的是 detectMultiScale函数。它可以检测出�
 该函数用于绘制矩形，可以利用对角线两点来绘制矩形或者传入矩形参数来绘制矩形。
 
 ## 参考资料
-- [人脸识别功能教程——实现支付宝人脸识别功能](https://www.jianshu.com/p/fe8dbb9f72ef?utm_source=desktop&utm_medium=timeline "人脸识别功能教程——实现支付宝人脸识别功能")
+- [Android 接入 OpenCV库的三种方式](https://www.cnblogs.com/xiaoxiaoqingyi/p/6676096.html)
 - [android 使用 surfaceView 获取 camera 预览界面图像数据](https://blog.csdn.net/DucklikeJAVA/article/details/81288624 "android 使用 surfaceView 获取 camera 预览界面图像数据")
 - [Android: Camera相机开发详解](https://www.jianshu.com/p/f8d0d1467584 "Android: Camera相机开发详解")
 - [android使用OpenCV之图像滤波处理](https://www.jianshu.com/p/e9562f8af1cb "android使用OpenCV之图像滤波处理")
