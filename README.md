@@ -18,11 +18,6 @@ OpenCV是一个基于BSD许可（开源）发行的跨平台计算机视觉库�
 --资料整理：存放整理后资料
 
 
-## 运行环境
-Android Studio 3.6.1
-
-OpenCV for Android SDK 3.4.1
-
 ## 基于 Android 的 OpenCV 开发环境搭建
 
 ### OpenCV SDK 准备
