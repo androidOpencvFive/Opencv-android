@@ -68,7 +68,7 @@ opencv2中人脸检测使用的是 detectMultiScale函数。它可以检测出�
 
 ## 参考资料
 - [Android 接入 OpenCV库的三种方式](https://www.cnblogs.com/xiaoxiaoqingyi/p/6676096.html)
-- [android 使用 surfaceView 获取 camera 预览界面图像数据](https://blog.csdn.net/DucklikeJAVA/article/details/81288624 "android 使用 surfaceView 获取 camera 预览界面图像数据")
+[OpenCV4Android学习之图像特征匹配算法](https://blog.csdn.net/gulingfengze/article/details/53571605 "OpenCV4Android学习之图像特征匹配算法")
 - [Android: Camera相机开发详解](https://www.jianshu.com/p/f8d0d1467584 "Android: Camera相机开发详解")
 - [android使用OpenCV之图像滤波处理](https://www.jianshu.com/p/e9562f8af1cb "android使用OpenCV之图像滤波处理")
 - [opencv4android 常用函数API](https://blog.csdn.net/hbl_for_android/article/details/51941106 "opencv4android 常用函数API")
